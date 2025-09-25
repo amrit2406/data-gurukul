@@ -1,0 +1,854 @@
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+// Import your logo image correctly:
+// import logo from '../assets/logo.png';
+
+export default function HeroSection() {
+  // Floating animation offsets for floating items
+  const floatTransition = {
+    repeat: Infinity,
+    repeatType: 'mirror',
+    ease: 'easeInOut',
+    duration: 6,
+  };
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-900 overflow-hidden px-6 md:px-12">
+      {/* SVG Waves Background */}
+      <svg
+        className="absolute bottom-0 left-0 w-full h-48 md:h-64 opacity-40 blur-md select-none pointer-events-none"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#67b0e3" />
+            <stop offset="100%" stopColor="#ffd700" />
+          </linearGradient>
+        </defs>
+        <path
+          fill="url(#waveGradient)"
+          fillOpacity="0.4"
+          d="M0,64L48,90.7C96,117,192,171,288,192C384,213,480,203,576,197.3C672,192,768,192,864,181.3C960,171,1056,149,1152,144C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
+      
+      {/* Floating Decorative Circles */}
+      <motion.div
+        className="absolute top-12 left-10 w-24 h-24 rounded-full bg-yellow-400 opacity-20 blur-3xl"
+        animate={{ y: [0, -20, 0] }}
+        transition={floatTransition}
+      />
+      <motion.div
+        className="absolute bottom-20 right-14 w-40 h-40 rounded-full bg-white opacity-10 blur-2xl"
+        animate={{ y: [0, 15, 0] }}
+        transition={{ ...floatTransition, duration: 8 }}
+      />
+
+      {/* Floating Book Icon (SVG) */}
+      <motion.div
+        className="absolute top-24 right-20 text-yellow-400"
+        animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
+        transition={{ ...floatTransition, duration: 7 }}
+        aria-hidden="true"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="drop-shadow-lg"
+        >
+          <path d="M2 6v12a2 2 0 002 2h16v-2H4V6h14v2h2V6a2 2 0 00-2-2H4a2 2 0 00-2 2z" />
+          <path d="M20 8h-8v8h8z" />
+        </svg>
+      </motion.div>
+
+      {/* Glassmorphic Hero Content Card */}
+      <motion.div
+        className="relative z-10 max-w-4xl bg-white/10 backdrop-blur-md rounded-3xl text-center px-10 py-14 md:py-20 shadow-xl border border-white/20"
+        initial={{ opacity: 0, scale: 0.9, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.9, delay: 0.3 }}
+        aria-label="Hero Section Content"
+      >
+        {/* Logo */}
+        <motion.img
+          src="{logo}"
+          alt="Iconic Learning Point Logo"
+          className="mx-auto w-28 md:w-36 mb-8 drop-shadow-lg"
+          initial={{ opacity: 0, y: -25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        />
+
+        {/* Headline */}
+        <motion.h1
+          className="text-white font-extrabold text-4xl md:text-6xl leading-tight mb-6 drop-shadow-lg"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          Smart Learning for{' '}
+          <span className="text-yellow-400 drop-shadow-lg">Smarter Results</span>
+        </motion.h1>
+
+        {/* Sub headline */}
+        <motion.p
+          className="text-white/90 text-lg md:text-xl max-w-xl mx-auto mb-12 leading-relaxed drop-shadow"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          Premium coaching for Grades 6–10 and competitive exams. Learn with Live Classes,
+          24×7 Doubt Support, NEET & JEE prep & more!
+        </motion.p>
+
+        {/* Action Buttons */}
+        <motion.div
+          className="flex flex-col sm:flex-row justify-center gap-6 max-w-sm mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.7 }}
+        >
+          <button
+            aria-label="Join Now"
+            className="relative bg-gradient-to-r from-yellow-400 to-yellow-600 text-blue-900 font-bold rounded-full px-10 py-4 shadow-lg hover:from-yellow-500 hover:to-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-400 transition-transform transform hover:scale-105 active:scale-95"
+          >
+            Join Now
+            {/* Ripple effect on focus/press */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 rounded-full opacity-0 focus-within:opacity-30 bg-yellow-300 animate-ping"
+            />
+          </button>
+          <button
+            aria-label="Book Free Demo"
+            className="relative border border-yellow-400 text-yellow-400 font-semibold rounded-full px-10 py-4 shadow-md hover:bg-yellow-400 hover:text-blue-900 focus:outline-none focus:ring-4 focus:ring-yellow-400 transition-transform transform hover:scale-105 active:scale-95"
+          >
+            Book Free Demo
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 rounded-full opacity-0 focus-within:opacity-20 bg-yellow-200 animate-ping"
+            />
+          </button>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
+// hero section
+
+
+import React from "react";
+import { motion } from "framer-motion";
+
+export default function AboutUs() {
+  return (
+    <motion.section
+      className="bg-white rounded-xl shadow-md max-w-5xl mx-auto px-8 py-12 mb-16"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl font-bold text-[#153b6c] mb-6 text-center">About Iconic Learning Point</h2>
+      <p className="text-gray-700 max-w-3xl mx-auto text-center leading-relaxed">
+        Iconic Learning Point is a premium coaching institute dedicated to empowering
+        students from Grades 6 to 10 with comprehensive curriculum coverage and entrance exam
+        preparation for NEET and JEE. Our innovative teaching methods, expert faculty, and 24×7 support
+        ensure personalized guidance that leads to smarter results.
+      </p>
+    </motion.section>
+  );
+}
+//about us
+
+import React from "react";
+import { motion } from "framer-motion";
+
+const highlightedCourses = [
+  {
+    id: 1,
+    title: "NEET Foundation Course",
+    description: "Build strong basics in Physics, Chemistry & Biology needed for NEET.",
+    duration: "Mon-Fri, 6-8 PM",
+    tests: "Weekly tests",
+  },
+  {
+    id: 2,
+    title: "JEE Crash Course",
+    description: "Fast-track your JEE preparation with expert guidance and test series.",
+    duration: "Weekdays, 7-9 AM",
+    tests: "Monthly tests",
+  },
+  {
+    id: 3,
+    title: "Grade 10 Full Syllabus",
+    description: "Complete support for CBSE, ICSE, and State Board exam success.",
+    duration: "Mon-Sat, 4-6 PM",
+    tests: "Weekly and Monthly tests",
+  },
+];
+export default function CourseHighlight() {
+  return (
+    <section className="max-w-7xl mx-auto px-6 mb-16">
+      <h2 className="text-3xl font-bold text-[#153b6c] mb-10 text-center">Featured Courses</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {highlightedCourses.map(({ id, title, description, duration, tests }, idx) => (
+          <motion.div
+            key={id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.15 }}
+            className="bg-white rounded-2xl shadow-lg p-8 flex flex-col hover:shadow-xl transition cursor-pointer"
+          >
+            <h3 className="text-2xl font-semibold text-[#67b0e3] mb-3">{title}</h3>
+            <p className="text-gray-700 flex-1 mb-5">{description}</p>
+            <div className="text-sm text-gray-500 flex justify-between">
+              <span>Duration: {duration}</span>
+              <span>Tests: {tests}</span>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+//course highlight
+
+import { motion } from 'framer-motion';
+import { FaChalkboardTeacher, FaBookOpen, FaQuestionCircle, FaChartLine } from 'react-icons/fa';
+
+const features = [
+  {
+    icon: <FaChalkboardTeacher className="text-3xl text-[#67b0e3]" />,
+    title: "Live Classes",
+    desc: "Interactive live sessions with expert teachers for every subject and grade."
+  },
+  {
+    icon: <FaBookOpen className="text-3xl text-[#67b0e3]" />,
+    title: "All Boards Covered",
+    desc: "CBSE, ICSE, CHSE (Odisha), State Boards for Classes 6–10, all key subjects."
+  },
+  {
+    icon: <FaQuestionCircle className="text-3xl text-[#67b0e3]" />,
+    title: "24×7 Doubt Clearing",
+    desc: "Instant Doubt Solving via WhatsApp, Chat, & App Support anytime."
+  },
+  {
+    icon: <FaChartLine className="text-3xl text-[#67b0e3]" />,
+    title: "NEET & JEE Special Courses",
+    desc: "Top-tier foundation & crash courses with exam practice and results tracking."
+  }
+];
+export default function FeaturesOverview() {
+  return (
+    <section className="w-full py-14 bg-white">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-[#153b6c] mb-12">Why Choose <span className="text-[#67b0e3]">Iconic?</span></h2>
+      <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-7 px-6">
+        {features.map((feature, idx) => (
+          <motion.div
+            key={feature.title}
+            className="bg-[#f3f8fe] rounded-xl p-7 flex flex-col items-center text-center shadow-md hover:shadow-xl duration-200"
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.14, duration: 0.5 }}
+          >
+            {feature.icon}
+            <div className="font-bold text-lg mt-2 mb-1 text-[#153b6c]">{feature.title}</div>
+            <div className="text-gray-600 text-sm">{feature.desc}</div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+//why choose us
+
+
+import React from "react";
+import { motion } from "framer-motion";
+
+const testTypes = [
+  { id: 1, title: "Weekly Tests", description: "Focused weekly tests to track your learning." },
+  { id: 2, title: "Monthly Tests", description: "Comprehensive monthly assessments." },
+  { id: 3, title: "Surprise Tests", description: "Unscheduled tests to sharpen exam readiness." },
+];
+export default function TestSeries() {
+  return (
+    <motion.section
+      className="max-w-5xl mx-auto px-6 mb-16 bg-white rounded-xl shadow-md p-10"
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl text-center font-bold text-[#153b6c] mb-8">Test Series Overview</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testTypes.map(({ id, title, description }) => (
+          <div key={id} className="border border-[#67b0e3] rounded-xl p-6 hover:bg-[#eaf6ff] transition cursor-pointer">
+            <h3 className="text-xl font-semibold mb-3 text-[#67b0e3]">{title}</h3>
+            <p className="text-gray-700">{description}</p>
+          </div>
+        ))}
+      </div>
+    </motion.section>
+  );
+}
+//test series
+
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  FaHeadset,
+  FaLightbulb,
+  FaUsers,
+  FaClipboardList,
+} from "react-icons/fa";
+
+const features = [
+  {
+    icon: <FaHeadset className="text-5xl text-[#67b0e3]" />,
+    title: "24×7 Doubt Clearing",
+    description: "Instant help anytime via WhatsApp, chat, and app.",
+  },
+  {
+    icon: <FaLightbulb className="text-5xl text-[#67b0e3]" />,
+    title: "Mind Maps",
+    description: "Smart visual tools for revision and concept clarity.",
+  },
+  {
+    icon: <FaUsers className="text-5xl text-[#67b0e3]" />,
+    title: "Parent Meetings",
+    description: "Monthly sessions to update & involve parents actively.",
+  },
+  {
+    icon: <FaClipboardList className="text-5xl text-[#67b0e3]" />,
+    title: "Weekly & Monthly Tests",
+    description: "Regular assessments for steady progress and confidence.",
+  },
+];
+export default function KeyFeatures() {
+  return (
+    <section className="max-w-6xl mx-auto px-8 mb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map(({ icon, title, description }, idx) => (
+        <motion.div
+          key={title}
+          className="bg-white/40 backdrop-blur-md rounded-3xl p-8 text-center shadow-lg hover:shadow-2xl transition cursor-pointer"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: idx * 0.15 }}
+        >
+          <div className="mb-5 flex justify-center">{icon}</div>
+          <h4 className="text-xl font-semibold text-[#153b6c] mb-2">{title}</h4>
+          <p className="text-gray-700 text-sm">{description}</p>
+        </motion.div>
+      ))}
+    </section>
+  );
+}
+// key features
+
+
+import React from "react";
+import { motion } from "framer-motion";
+
+const highlightedCourses = [
+  {
+    id: 1,
+    title: "NEET Foundation Course",
+    description: "Build strong basics in Physics, Chemistry & Biology needed for NEET.",
+    duration: "Mon-Fri, 6-8 PM",
+    tests: "Weekly tests",
+  },
+  {
+    id: 2,
+    title: "JEE Crash Course",
+    description: "Fast-track your JEE preparation with expert guidance and test series.",
+    duration: "Weekdays, 7-9 AM",
+    tests: "Monthly tests",
+  },
+  {
+    id: 3,
+    title: "Grade 10 Full Syllabus",
+    description: "Complete support for CBSE, ICSE, and State Board exam success.",
+    duration: "Mon-Sat, 4-6 PM",
+    tests: "Weekly and Monthly tests",
+  },
+];
+export default function CourseHighlight() {
+  return (
+    <section className="max-w-7xl mx-auto px-6 mb-16">
+      <h2 className="text-3xl font-bold text-[#153b6c] mb-10 text-center">Featured Courses</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {highlightedCourses.map(({ id, title, description, duration, tests }, idx) => (
+          <motion.div
+            key={id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.15 }}
+            className="bg-white rounded-2xl shadow-lg p-8 flex flex-col hover:shadow-xl transition cursor-pointer"
+          >
+            <h3 className="text-2xl font-semibold text-[#67b0e3] mb-3">{title}</h3>
+            <p className="text-gray-700 flex-1 mb-5">{description}</p>
+            <div className="text-sm text-gray-500 flex justify-between">
+              <span>Duration: {duration}</span>
+              <span>Tests: {tests}</span>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+//course highlight
+
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+
+const testimonials = [
+  {
+    name: "Rahul S.",
+    role: "Parent",
+    text: "Iconic Learning Point gave my son the best learning support. The teachers are amazing and the doubt-clearing is super fast!",
+    avatar: "https://randomuser.me/api/portraits/men/64.jpg"
+  },
+  {
+    name: "Priya P.",
+    role: "JEE Student",
+    text: "Test series and mind maps boosted my JEE prep. Scored 97% in Physics & Math. Highly recommend Iconic!",
+    avatar: "https://randomuser.me/api/portraits/women/45.jpg"
+  },
+  {
+    name: "Amit R.",
+    role: "CBSE 10th Topper",
+    text: "Weekly tests and previous years' questions helped me crack the boards. Thanks, Iconic team!",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+  }
+];
+
+export default function Testimonials() {
+  const [current, setCurrent] = useState(0);
+
+  function prev() { setCurrent((old) => (old === 0 ? testimonials.length - 1 : old - 1)); }
+  function next() { setCurrent((old) => (old === testimonials.length - 1 ? 0 : old + 1)); }
+
+  return (
+    <section className="py-12 bg-gradient-to-r from-[#e3f1fc] to-[#f9fafe]">
+      <h2 className="text-3xl font-bold text-[#153b6c] text-center mb-10">Student & Parent Success Stories</h2>
+      <div className="max-w-xl mx-auto flex flex-col items-center">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -80 }}
+          transition={{ duration: 0.5, type: "spring" }}
+          className="bg-white rounded-xl px-8 py-6 shadow-xl text-center relative border-t-4 border-[#67b0e3] max-w-md"
+        >
+          <img
+            src={testimonials[current].avatar}
+            alt={testimonials[current].name}
+            className="w-16 h-16 rounded-full border-2 border-[#67b0e3] object-cover mx-auto mb-2"
+          />
+          <div className="font-semibold text-[#153b6c]">{testimonials[current].name}</div>
+          <div className="text-[#67b0e3] text-xs mb-3 italic">{testimonials[current].role}</div>
+          <p className="text-gray-700 mb-2">"{testimonials[current].text}"</p>
+        </motion.div>
+
+        <div className="flex gap-4 mt-7">
+          <button
+            aria-label="Previous"
+            className="text-[#67b0e3] font-bold text-2xl px-3 rounded hover:bg-[#eff6fd]"
+            onClick={prev}
+          >&larr;</button>
+          <button
+            aria-label="Next"
+            className="text-[#67b0e3] font-bold text-2xl px-3 rounded hover:bg-[#eff6fd]"
+            onClick={next}
+          >&rarr;</button>
+        </div>
+      </div>
+    </section>
+  );
+}
+// testimonial
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+
+export default function ContactForm() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  function handleChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus({ success: false, msg: "Please fill in all fields." });
+      return;
+    }
+    setLoading(true);
+    setStatus(null);
+    // Simulate async submission
+    setTimeout(() => {
+      setLoading(false);
+      setStatus({ success: true, msg: "Thank you! We will contact you soon." });
+      setFormData({ name: "", email: "", message: "" });
+    }, 1500);
+  }
+
+  return (
+    <motion.section
+      className="bg-white rounded-xl shadow-md max-w-4xl mx-auto px-8 py-10"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl font-bold text-[#153b6c] mb-8 text-center">Get in Touch</h2>
+      <form onSubmit={handleSubmit} className="max-w-xl mx-auto flex flex-col gap-6">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name *"
+          className="border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#67b0e3]"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          aria-label="Your Name"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email *"
+          className="border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#67b0e3]"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          aria-label="Your Email"
+        />
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Your Message *"
+          className="border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#67b0e3]"
+          value={formData.message}
+          onChange={handleChange}
+          required
+          aria-label="Your Message"
+        ></textarea>
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-[#67b0e3] text-white font-semibold py-3 rounded-md hover:bg-[#153b6c] transition disabled:opacity-60"
+        >
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+        {status && (
+          <p className={`text-center mt-4 font-semibold ${status.success ? "text-green-600" : "text-red-600"}`}>
+            {status.msg}
+          </p>
+        )}
+      </form>
+    </motion.section>
+  );
+}
+// contact form
+
+
+import { motion } from 'framer-motion';
+
+export default function CTASection() {
+  return (
+    <motion.section
+      className="w-full py-8 px-6 flex items-center justify-center"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.1, duration: 0.7 }}
+    >
+      <div className="bg-[#67b0e3] text-white rounded-2xl px-8 py-12 max-w-3xl w-full shadow-xl flex flex-col items-center text-center">
+        <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          Ready to Experience Iconic Learning?
+        </h3>
+        <p className="mb-5 max-w-xl text-white/90">
+          Book a free demo or join our next batch for personalized academic growth. Our team will reach out within 24 hours!
+        </p>
+        <div className="flex flex-col xs:flex-row gap-3 mt-2 w-full justify-center">
+          <button className="bg-white text-[#153b6c] font-semibold rounded-lg px-7 py-3 shadow hover:bg-[#dff0f8] duration-150">
+            Book a Free Demo
+          </button>
+          <button className="bg-[#153b6c] text-white font-semibold rounded-lg px-7 py-3 shadow hover:bg-[#215286] duration-150">
+            Join Now
+          </button>
+        </div>
+      </div>
+    </motion.section>
+  );
+}
+// cta section
+
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+// import logo from "../assets/logo.png";
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Courses", path: "/courses" },
+  { name: "Why Iconic", path: "/why-iconic" },
+  { name: "Test Series", path: "/test-series" },
+  { name: "Study Material", path: "/study-material" },
+  { name: "About Us", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close menu on link click (mobile)
+  function handleLinkClick() {
+    setMenuOpen(false);
+  }
+
+  return (
+    <header className="bg-white shadow-md fixed w-full z-50 top-0 left-0">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-16 md:h-20">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img src="{logo}" 
+          // alt="Iconic Learning Point Logo" 
+          className="w-12 md:w-14" />
+          <span className="font-extrabold text-[#153b6c] text-lg md:text-xl select-none">
+            Iconic Learning Point
+          </span>
+        </Link>
+
+        {/* Desktop Nav Links */}
+        <nav className="hidden md:flex space-x-8 items-center text-[#153b6c] font-semibold text-sm md:text-base">
+          {navLinks.map(({ name, path }) => (
+            <NavLink
+              key={name}
+              to={path}
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                `relative px-1 pb-1 hover:text-[#67b0e3] transition ${
+                  isActive
+                    ? "text-[#67b0e3] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-[#67b0e3]"
+                    : ""
+                }`
+              }
+            >
+              {name}
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+          className="md:hidden text-2xl text-[#153b6c] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#67b0e3]"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="md:hidden bg-white shadow-inner border-t border-gray-200 overflow-hidden"
+            aria-label="Mobile Navigation Menu"
+          >
+            <ul className="flex flex-col p-4 space-y-3 font-semibold text-[#153b6c]">
+              {navLinks.map(({ name, path }) => (
+                <li key={name}>
+                  <NavLink
+                    to={path}
+                    onClick={handleLinkClick}
+                    className={({ isActive }) =>
+                      `block px-3 py-2 rounded-md hover:bg-[#67b0e3] hover:text-white transition ${
+                        isActive ? "bg-[#67b0e3] text-white" : "text-[#153b6c]"
+                      }`
+                    }
+                  >
+                    {name}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
+// navbar
+
+
+import React from "react";
+import { motion } from "framer-motion";
+// import logo from "../assets/logo.png";
+import {
+  FaPhoneAlt,
+  FaWhatsapp,
+  FaEnvelope,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+export default function Footer() {
+  return (
+    <motion.footer
+      className="bg-[#153b6c] text-white pt-10 pb-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Logo and Tagline */}
+        <div className="flex flex-col items-center md:items-start">
+          <img src="{logo}" alt="Iconic Learning Point Logo" className="w-28 mb-3" />
+          <p className="text-sm text-gray-300 max-w-xs text-center md:text-left">
+            Empowering school students & aspirants with expert coaching and smart learning tools.
+          </p>
+        </div>
+
+        {/* Quick Links */}
+        <nav aria-label="Footer Navigation" className="space-y-3 text-sm">
+          <h3 className="font-semibold mb-2 text-[#67b0e3]">Quick Links</h3>
+          <ul>
+            <li>
+              <Link to="/" className="hover:text-[#FFD700] transition duration-150">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/courses" className="hover:text-[#FFD700] transition duration-150">
+                Courses
+              </Link>
+            </li>
+            <li>
+              <Link to="/why-iconic" className="hover:text-[#FFD700] transition duration-150">
+                Why Iconic
+              </Link>
+            </li>
+            <li>
+              <Link to="/test-series" className="hover:text-[#FFD700] transition duration-150">
+                Test Series
+              </Link>
+            </li>
+            <li>
+              <Link to="/study-material" className="hover:text-[#FFD700] transition duration-150">
+                Study Material
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-[#FFD700] transition duration-150">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-[#FFD700] transition duration-150">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Contact Info */}
+        <div className="space-y-4 text-sm">
+          <h3 className="font-semibold text-[#67b0e3] mb-2">Contact Info</h3>
+          <div className="flex items-center gap-3">
+            <FaPhoneAlt className="text-[#67b0e3]" />
+            <a href="tel:+919876543210" className="hover:text-[#FFD700] transition duration-150">
+              +91 98765 43210
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <FaWhatsapp className="text-[#25D366]" />
+            <a
+              href="https://wa.me/919876543210"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#FFD700] transition duration-150"
+            >
+              WhatsApp Chat
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <FaEnvelope className="text-[#67b0e3]" />
+            <a
+              href="mailto:info@iconiclearningpoint.com"
+              className="hover:text-[#FFD700] transition duration-150"
+            >
+              info@iconiclearningpoint.com
+            </a>
+          </div>
+        </div>
+
+        {/* Social Media */}
+        <div className="flex flex-col items-center md:items-start text-sm space-y-4">
+          <h3 className="font-semibold text-[#67b0e3]">Follow Us</h3>
+          <div className="flex gap-5 text-white text-lg">
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="hover:text-[#FFD700] transition duration-150"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="#"
+              aria-label="Twitter"
+              className="hover:text-[#FFD700] transition duration-150"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="hover:text-[#FFD700] transition duration-150"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              className="hover:text-[#FFD700] transition duration-150"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn />
+            </a>
+          </div>
+          <p className="text-xs text-gray-400 mt-auto">&copy; {new Date().getFullYear()} Iconic Learning Point. All rights reserved.</p>
+        </div>
+      </div>
+    </motion.footer>
+  );
+}
+// footer
