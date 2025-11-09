@@ -15,6 +15,10 @@ import StudyMaterial from '../components/home/StudyMaterial';
 import ContactForm from '../components/home/ContactForm';
 import FAQSection from '../components/home/Faq';
 import WhatsAppFloatingButton from '../components/WhatsAppFloatButton';
+import StepProcess from '../components/home/Process';
+import CareerPathShowcase from '../components/home/CareerPathShowcase';
+import ToolsSection from '../components/home/Tools';
+import OurAlumniWorkAt from '../components/home/Alumini';
 
 export default function Home() {
   return (
@@ -39,6 +43,11 @@ export default function Home() {
       >
         <FeaturesOverview />
       </motion.section> */}
+
+      <StepProcess />
+
+      <ToolsSection />
+      <CareerPathShowcase />
       
       {/* Testimonials and Success Stories */}
       <motion.section
@@ -52,6 +61,7 @@ export default function Home() {
           <Testimonials />
         </div>
       </motion.section>
+      <OurAlumniWorkAt />
       <FAQSection />
 
       <ContactForm />

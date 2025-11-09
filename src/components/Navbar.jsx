@@ -14,12 +14,12 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-// import logo from "../assets/ilp.svg"; // Make sure to uncomment this and verify the path!
+import logo from "../assets/ilp.png";
 
 // --- Custom Constants ---
 const PRIMARY_COLOR = "#023270"; // Deep Blue
 const SECONDARY_COLOR = "#796202"; // Gold/Ochre
-const whatsappPhoneNumber = "917008463002"; // Your WhatsApp number, without the '+'
+const whatsappPhoneNumber = "918917236682"; // Your WhatsApp number, without the '+'
 
 // --- Framer Motion Variants ---
 const dropdownVariants = {
@@ -70,9 +70,11 @@ const navItems = [
       { name: "Python", path: "/courses/python" },
       { name: "Sql", path: "/courses/sql" },
       { name: "PowerBI", path: "/courses/powerbi" },
-      { name: "Tableau", path: "/courses/tableau" },
+      // { name: "Tableau", path: "/courses/tableau" },
       { name: "Machine Learning", path: "/courses/ml" },
       { name: "Generative AI", path: "/courses/genai" },
+      // { name: "Data Analytics", path: "/courses/analytics" },
+      // { name: "Data Science", path: "/courses/datascience" },
     ],
   },
   {
@@ -82,9 +84,11 @@ const navItems = [
       { name: "Python", path: "/syllabus/python" },
       { name: "Sql", path: "/syllabus/sql" },
       { name: "PowerBI", path: "/syllabus/powerbi" },
-      { name: "Tableau", path: "/syllabus/tableau" },
+      // { name: "Tableau", path: "/syllabus/tableau" },
       { name: "Machine Learning", path: "/syllabus/ml" },
       { name: "Generative AI", path: "/syllabus/genai" },
+      // { name: "Data Analytics", path: "/syllabus/analytics" },
+      // { name: "Data Science", path: "/syllabus/datascience" },
     ],
   },
   { name: "Contact", path: "/contact" },
@@ -118,7 +122,7 @@ const EnrollmentPopup = ({ isOpen, onClose }) => {
 Name: ${formData.name}
 Phone: ${formData.phone}
 Email: ${formData.email}
-Message: ${formData.message || 'I am interested in enrolling in your courses!'}
+Message: ${formData.message || "I am interested in enrolling in your courses!"}
     `.trim();
 
     // 2. Encode the message for the URL
@@ -135,7 +139,13 @@ Message: ${formData.message || 'I am interested in enrolling in your courses!'}
     setFormData({ name: "", phone: "", email: "", message: "" });
   };
 
-  const FormInput = ({ icon: Icon, name, type = "text", placeholder, required = true }) => (
+  const FormInput = ({
+    icon: Icon,
+    name,
+    type = "text",
+    placeholder,
+    required = true,
+  }) => (
     <div className="relative">
       <Icon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
       <input
@@ -172,24 +182,35 @@ Message: ${formData.message || 'I am interested in enrolling in your courses!'}
             >
               <X className="w-6 h-6" />
             </button>
-            
+
             <div className="text-center mb-6">
-              <h2 
-                className="text-3xl font-bold mb-2" 
+              <h2
+                className="text-3xl font-bold mb-2"
                 style={{ color: PRIMARY_COLOR }}
               >
                 Start Your Enrollment!
               </h2>
               <p className="text-gray-600">
-                Fill out the details and we'll connect with you instantly on **WhatsApp**.
+                Fill out the details and we'll connect with you instantly on
+                **WhatsApp**.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <FormInput icon={User} name="name" placeholder="Your Full Name" />
-              <FormInput icon={Phone} name="phone" placeholder="Phone Number" type="tel" />
-              <FormInput icon={Mail} name="email" placeholder="Email Address" type="email" />
-              
+              <FormInput
+                icon={Phone}
+                name="phone"
+                placeholder="Phone Number"
+                type="tel"
+              />
+              <FormInput
+                icon={Mail}
+                name="email"
+                placeholder="Email Address"
+                type="email"
+              />
+
               <div className="relative">
                 <MessageSquare className="absolute left-3 top-4 h-5 w-5 text-gray-400" />
                 <textarea
@@ -219,7 +240,6 @@ Message: ${formData.message || 'I am interested in enrolling in your courses!'}
   );
 };
 
-
 // ----------------------------------------------------------------------
 // 2. Top Header Component
 // ----------------------------------------------------------------------
@@ -229,11 +249,11 @@ const TopHeader = () => (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-8 flex justify-between items-center text-xs text-gray-400">
       <div className="flex space-x-6">
         <a
-          href="tel:+917008463002"
+          href="tel:+918917236682"
           className="flex items-center hover:text-yellow-500 transition text-sm"
         >
           <Phone className="h-3 w-3 mr-1 stroke-yellow-500" />
-          +91 7008463002
+          +91 8917236682
         </a>
         <a
           href="mailto:info@datagurukul.in"
@@ -273,7 +293,6 @@ const TopHeader = () => (
     </div>
   </div>
 );
-
 
 // ----------------------------------------------------------------------
 // 3. Nav Item Components
@@ -397,7 +416,6 @@ const MobileNavItem = ({ item, setIsMobileOpen }) => {
   );
 };
 
-
 // ----------------------------------------------------------------------
 // 4. Main Navbar Component
 // ----------------------------------------------------------------------
@@ -410,7 +428,7 @@ const Navbar = () => {
     if (e && e.preventDefault) {
       e.preventDefault();
     }
-    setIsMobileOpen(false); 
+    setIsMobileOpen(false);
     setIsPopupOpen(true);
   };
 
@@ -418,7 +436,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 w-full bg-white shadow-md">
       <TopHeader />
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-18 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -430,8 +448,9 @@ const Navbar = () => {
             >
               {/* Fallback text if logo image is missing */}
               {/* Replace with <img src={logo} alt="Data Gurukul Logo" className="h-16 w-auto" /> when available */}
-              <span style={{ color: PRIMARY_COLOR }}>Data</span>
-              <span style={{ color: SECONDARY_COLOR }}>Gurukul</span> 
+              <img src={logo} alt="Data Gurukul Logo" className="h-20 w-auto" />
+              {/* <span style={{ color: PRIMARY_COLOR }}>Data</span>
+              <span style={{ color: SECONDARY_COLOR }}>Gurukul</span>  */}
             </Link>
           </motion.div>
 
@@ -448,7 +467,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Enroll Now
+            Book Demo
           </motion.button>
 
           <button
@@ -495,11 +514,11 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </nav>
-      
+
       {/* GLOBAL POPUP */}
-      <EnrollmentPopup 
-        isOpen={isPopupOpen} 
-        onClose={() => setIsPopupOpen(false)} 
+      <EnrollmentPopup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
       />
     </header>
   );

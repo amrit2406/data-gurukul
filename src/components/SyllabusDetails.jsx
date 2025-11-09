@@ -8,8 +8,10 @@ import {
   FiCpu,
   FiChevronDown,
   FiBookOpen,
-  FiBarChart2 ,
+  FiBarChart2,
   FiPieChart,
+  FiBarChart,
+  FiTrendingUp
 } from "react-icons/fi"; // Icons for visual appeal
 
 // --- Styling Constants ---
@@ -37,35 +39,80 @@ const allSyllabusData = {
     courseTitle: "Python",
     icon: FiCode,
     description:
-      "A comprehensive course to master Python programming, focusing on core concepts and the essential libraries for data manipulation and analysis.",
-    duration: "4 Months (Full-Time)",
+      "A comprehensive course to master Python programming, covering core concepts, OOPs, file handling, regular expressions, and data analytics.",
+    duration: "30 hrs",
     difficulty: "Intermediate",
     modules: [
       {
-        title: "Module 1: Python Fundamentals (Weeks 1-4)",
+        title: "Module 1: Introduction to Python Programming",
         topics: [
-          "Introduction, Setup, and Environment",
-          "Variables, Data Types, and Operators",
-          "Control Structures (if/else, loops) and Functions",
-          "Object-Oriented Programming (OOP) Essentials",
+          "Overview of Python",
+          "Setting up Python Environment",
+          "Basic Syntax and First Program",
         ],
       },
       {
-        title: "Module 2: Data Manipulation & I/O (Weeks 5-8)",
+        title: "Module 2: Data Types, Variables, and Operators",
         topics: [
+          "Numbers, Strings, and Booleans",
           "Lists, Tuples, Sets, and Dictionaries",
-          "File Handling (CSV, JSON, Text Files)",
-          "Introduction to NumPy for Array Computing",
-          "Mastering Pandas: DataFrames and Series",
+          "Type Casting and Input/Output",
+          "Operators in Python",
         ],
       },
       {
-        title: "Module 3: Advanced Topics & Projects (Weeks 9-16)",
+        title: "Module 3: Conditional Statements",
         topics: [
-          "Data Cleaning, Merging, and Reshaping with Pandas",
-          "Data Visualization with Matplotlib and Seaborn",
-          "Error Handling and Debugging",
-          "Final Project: Exploratory Data Analysis (EDA)",
+          "if, elif, else Statements",
+          "Nested Conditions",
+          "Looping Structures (for, while)",
+          "Loop Control Statements (break, continue, pass)",
+        ],
+      },
+      {
+        title: "Module 4: OOPs Concept in Python",
+        topics: [
+          "Classes and Objects",
+          "Constructors and Destructors",
+          "Inheritance and Polymorphism",
+          "Encapsulation and Abstraction",
+        ],
+      },
+      {
+        title: "Module 5: Functions in Python",
+        topics: [
+          "Defining and Calling Functions",
+          "Function Arguments and Return Values",
+          "Lambda Functions",
+          "Scope and Recursion",
+        ],
+      },
+      {
+        title: "Module 6: Exception Handling and File Handling",
+        topics: [
+          "Errors vs Exceptions",
+          "try, except, finally",
+          "Raising Exceptions",
+          "File Operations (open, read, write, close)",
+          "Handling CSV and JSON files",
+        ],
+      },
+      {
+        title: "Module 7: Regular Expressions",
+        topics: [
+          "Introduction to Regex",
+          "Meta Characters and Special Sequences",
+          "Matching and Searching",
+          "Regex with Python re Module",
+        ],
+      },
+      {
+        title: "Module 8: Data Analytics using Python",
+        topics: [
+          "Introduction to NumPy",
+          "Data Manipulation with Pandas",
+          "Data Visualization with Matplotlib & Seaborn",
+          "Mini Project: Exploratory Data Analysis (EDA)",
         ],
       },
     ],
@@ -74,32 +121,81 @@ const allSyllabusData = {
     courseTitle: "SQL",
     icon: FiDatabase,
     description:
-      "Deep-dive into advanced SQL querying, database design principles, and performance tuning for professional data management.",
-    duration: "3 Months (Part-Time)",
+      "A complete course to master SQL, covering database fundamentals, queries, joins, indexing, triggers, and advanced concepts like window functions and recursive queries.",
+    duration: "30 hrs",
     difficulty: "Intermediate",
     modules: [
       {
-        title: "Module 1: Core SQL and Normalization",
+        title: "Module 1: Introduction to Database",
         topics: [
-          "Basic SELECT, WHERE, GROUP BY, HAVING",
-          "Complex Joins (Self-Join, Outer Joins) and Set Operations",
-          "Database Design and Normalization (1NF, 2NF, 3NF)",
+          "Database Concepts and Architecture",
+          "RDBMS vs DBMS",
+          "Introduction to SQL",
+          "Creating and Managing Databases",
         ],
       },
       {
-        title: "Module 2: Advanced Querying and Optimization",
+        title: "Module 2: SQL Commands",
         topics: [
-          "Subqueries, Common Table Expressions (CTEs)",
-          "Window Functions (ROW_NUMBER, LAG, RANK)",
-          "Indexes, Execution Plans, and Query Optimization",
+          "DDL (Data Definition Language)",
+          "DML (Data Manipulation Language)",
+          "DCL (Data Control Language)",
+          "TCL (Transaction Control Language)",
         ],
       },
       {
-        title: "Module 3: Database Administration & Procedures",
+        title: "Module 3: Data Types & Relational Operators",
         topics: [
-          "Views, Stored Procedures, and Functions",
-          "Transaction Management (ACID Properties)",
-          "Security and Access Control Basics",
+          "SQL Data Types",
+          "Primary and Foreign Keys",
+          "Relational Operators (=, !=, >, <, etc.)",
+          "NULL Handling",
+        ],
+      },
+      {
+        title: "Module 4: SQL Operators",
+        topics: [
+          "Arithmetic Operators",
+          "Comparison Operators",
+          "Logical Operators (AND, OR, NOT)",
+          "LIKE, IN, BETWEEN",
+        ],
+      },
+      {
+        title: "Module 5: SQL SubQuery and Joins",
+        topics: [
+          "Introduction to Subqueries",
+          "Single-row and Multi-row Subqueries",
+          "INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN",
+          "Self Join and Cross Join",
+        ],
+      },
+      {
+        title: "Module 6: Indexes",
+        topics: [
+          "Introduction to Indexing",
+          "Clustered vs Non-Clustered Indexes",
+          "Creating and Dropping Indexes",
+          "Performance Considerations",
+        ],
+      },
+      {
+        title: "Module 7: Triggers, Union & Union All",
+        topics: [
+          "Introduction to Triggers",
+          "AFTER and BEFORE Triggers",
+          "Union vs Union All",
+          "Use Cases and Examples",
+        ],
+      },
+      {
+        title:
+          "Module 8: Advanced SQL (Window Functions, CTEs, Recursive Queries)",
+        topics: [
+          "Window Functions (ROW_NUMBER, RANK, DENSE_RANK, etc.)",
+          "Common Table Expressions (CTEs)",
+          "Recursive Queries",
+          "Complex Query Optimization",
         ],
       },
     ],
@@ -109,31 +205,79 @@ const allSyllabusData = {
     icon: FiBarChart2, // You may need to import FiBarChart2 from react-icons/fi
     description:
       "Master data visualization and dashboard building using Power BI, empowering you to create impactful business insights and interactive reports.",
-    duration: "2 Months (Part-Time)",
+    duration: "20 hrs",
     difficulty: "Beginner to Intermediate",
     modules: [
       {
-        title: "Module 1: Power BI Essentials",
+        title: "Module 1: Introduction",
         topics: [
-          "Introduction to Power BI Desktop and Service",
-          "Importing Data from Excel, SQL, and APIs",
-          "Data Cleaning and Transformation with Power Query",
+          "Overview of Business Intelligence",
+          "Role of Power BI in Data Analytics",
+          "Power BI Ecosystem (Desktop, Service, Mobile)",
         ],
       },
       {
-        title: "Module 2: Data Modeling and DAX",
+        title: "Module 2: Introduction to Power BI",
         topics: [
-          "Creating Relationships and Star Schema Design",
-          "Calculated Columns, Measures, and KPIs",
-          "Introduction to DAX Functions (SUMX, CALCULATE, FILTER)",
+          "Installing and Setting up Power BI Desktop",
+          "Navigating Power BI Interface",
+          "Connecting to Data Sources",
         ],
       },
       {
-        title: "Module 3: Visualization and Dashboards",
+        title: "Module 3: Power BI Desktop",
         topics: [
-          "Designing Interactive Reports and Dashboards",
-          "Custom Visuals and Advanced Charts",
-          "Publishing and Sharing Reports in Power BI Service",
+          "Data Loading and Transformation using Power Query",
+          "Data Modeling and Relationships",
+          "Calculated Columns and Measures",
+        ],
+      },
+      {
+        title: "Module 4: DAX",
+        topics: [
+          "Introduction to DAX Syntax",
+          "Common Functions (SUM, AVERAGE, COUNTROWS)",
+          "Advanced Functions (CALCULATE, FILTER, ALL)",
+        ],
+      },
+      {
+        title: "Module 5: Data Visualisation",
+        topics: [
+          "Creating and Customizing Visuals",
+          "Interactive Dashboards and Reports",
+          "Custom Visuals and Best Practices",
+        ],
+      },
+      {
+        title: "Module 6: Power BI Q&A",
+        topics: [
+          "Using Natural Language Queries",
+          "Configuring and Optimizing Q&A",
+          "Integrating Q&A in Dashboards",
+        ],
+      },
+      {
+        title: "Module 7: Direct Connectivity",
+        topics: [
+          "Connecting to Live Databases (SQL, Azure, etc.)",
+          "DirectQuery vs Import Mode",
+          "Performance Considerations",
+        ],
+      },
+      {
+        title: "Module 8: Report Servers",
+        topics: [
+          "Introduction to Power BI Report Server",
+          "Publishing and Managing Reports On-Premises",
+          "Comparing Power BI Service vs Report Server",
+        ],
+      },
+      {
+        title: "Module 9: Advanced Analytics",
+        topics: [
+          "Integrating R and Python with Power BI",
+          "Forecasting and Trend Analysis",
+          "Advanced Data Modeling Techniques",
         ],
       },
     ],
@@ -175,76 +319,338 @@ const allSyllabusData = {
   },
   ml: {
     courseTitle: "Machine Learning",
-    icon: FiCpu,
+    icon: FiCpu, // import from react-icons/fi
     description:
-      "Build and deploy robust predictive models using essential ML algorithms and Python frameworks like Scikit-learn and TensorFlow.",
-    duration: "6 Months (Part-Time)",
+      "Build and deploy robust predictive models using essential ML algorithms, statistical foundations, and Python frameworks like Scikit-learn and TensorFlow.",
+    duration: "100 hrs",
     difficulty: "Advanced",
     modules: [
       {
-        title: "Module 1: Foundations and Preprocessing",
+        title: "Module 1: Mathematical Foundations",
         topics: [
-          "ML Workflow and Types (Supervised, Unsupervised)",
-          "Data Preprocessing, Scaling, and Feature Engineering",
-          "Model Evaluation and Cross-Validation",
+          "Probability Basics",
+          "Linear Algebra Essentials",
+          "Statistics Overview",
         ],
       },
       {
-        title: "Module 2: Supervised and Ensemble Learning",
+        title: "Module 2: Clustering",
+        topics: ["K-Means Clustering", "Hierarchical Clustering", "DBSCAN"],
+      },
+      {
+        title: "Module 3: Dimension Reduction",
         topics: [
-          "Linear Regression and Logistic Regression",
-          "Decision Trees, Random Forests, and Boosting Algorithms",
-          "Support Vector Machines (SVM) and K-Nearest Neighbors (KNN)",
+          "Principal Component Analysis (PCA)",
+          "t-SNE",
+          "Feature Selection Methods",
         ],
       },
       {
-        title: "Module 3: Unsupervised Learning & Neural Networks",
+        title: "Module 4: Association Rules",
+        topics: ["Apriori Algorithm", "FP-Growth", "Market Basket Analysis"],
+      },
+      {
+        title: "Module 5: Network Analytics",
         topics: [
-          "Clustering (K-Means, DBSCAN) and Dimensionality Reduction (PCA)",
-          "Introduction to Neural Networks and Deep Learning",
-          "Building a Simple Perceptron Model",
+          "Graph Theory Basics",
+          "Centrality Measures",
+          "Community Detection",
         ],
       },
       {
-        title: "Module 4: Deployment and Capstone Project",
+        title: "Module 6: Text Mining",
         topics: [
-          "Model Persistence and Deployment (Flask/Streamlit)",
-          "Ethical Considerations in ML",
-          "Capstone Project: End-to-End Predictive Model",
+          "Text Preprocessing",
+          "Bag of Words & TF-IDF",
+          "Topic Modeling (LDA)",
+        ],
+      },
+      {
+        title: "Module 7: Natural Language Processing",
+        topics: [
+          "Tokenization and Lemmatization",
+          "Word Embeddings (Word2Vec, GloVe)",
+          "Sequence Models",
+        ],
+      },
+      {
+        title: "Module 8: Naive Bayes",
+        topics: [
+          "Bayes Theorem",
+          "Gaussian Naive Bayes",
+          "Multinomial Naive Bayes",
+        ],
+      },
+      {
+        title: "Module 9: kNN",
+        topics: [
+          "Distance Metrics",
+          "k-Nearest Neighbors for Classification",
+          "kNN for Regression",
+        ],
+      },
+      {
+        title: "Module 10: Decision Tree",
+        topics: ["Gini Index & Entropy", "Tree Pruning", "Regression Trees"],
+      },
+      {
+        title: "Module 11: Ensemble Techniques",
+        topics: [
+          "Bagging & Random Forests",
+          "Boosting (AdaBoost, Gradient Boosting, XGBoost)",
+          "Stacking Models",
+        ],
+      },
+      {
+        title: "Module 12: Confidence Interval",
+        topics: [
+          "Standard Error",
+          "Z-Interval & T-Interval",
+          "Interpreting Confidence Levels",
+        ],
+      },
+      {
+        title: "Module 13: Hypothesis Testing",
+        topics: [
+          "Null & Alternative Hypothesis",
+          "p-values & Significance Levels",
+          "ANOVA & Chi-Square Tests",
+        ],
+      },
+      {
+        title: "Module 14: Simple Linear Regression",
+        topics: [
+          "Model Assumptions",
+          "Correlation vs Regression",
+          "Evaluation Metrics",
+        ],
+      },
+      {
+        title: "Module 15: Multiple Linear Regression",
+        topics: ["Multicollinearity", "Feature Selection", "Adjusted R-Square"],
+      },
+      {
+        title: "Module 16: Logistic Regression",
+        topics: [
+          "Sigmoid Function",
+          "Binary Classification",
+          "ROC Curve & AUC",
+        ],
+      },
+      {
+        title: "Module 17: Multinomial Regression",
+        topics: [
+          "Softmax Function",
+          "Multiclass Classification",
+          "Applications",
+        ],
+      },
+      {
+        title: "Module 18: Lasso and Ridge Regression",
+        topics: [
+          "Regularization Concepts",
+          "Bias-Variance Tradeoff",
+          "ElasticNet",
+        ],
+      },
+      {
+        title: "Module 19: Blackbox-SVM",
+        topics: ["Linear SVM", "Kernel Methods", "Hyperparameter Tuning"],
+      },
+      {
+        title: "Module 20: Forecasting",
+        topics: [
+          "Time Series Decomposition",
+          "ARIMA Models",
+          "Forecasting with Prophet",
+        ],
+      },
+      {
+        title: "Module 21: Deep Learning",
+        topics: [
+          "Neural Network Basics",
+          "Backpropagation",
+          "Applications with TensorFlow/Keras",
         ],
       },
     ],
   },
   genai: {
     courseTitle: "Generative AI",
-    icon: FiCpu,
+    icon: FiCpu, // import from react-icons/fi
     description:
       "Explore large language models (LLMs), transformer architecture, and advanced prompt engineering techniques for real-world AI applications.",
-    duration: "1.5 Months (Intensive)",
+    duration: "30 hrs",
     difficulty: "Advanced",
     modules: [
       {
-        title: "Module 1: LLM Architecture and Basics",
+        title: "Module 1: Introduction to Generative AI",
         topics: [
-          "Introduction to Generative Models (GPT, LLaMA)",
-          "The Transformer Architecture Explained",
-          "Tokenization, Embeddings, and Vector Stores",
+          "Overview of Generative AI and Use Cases",
+          "History and Evolution of Generative Models",
+          "Ethical Considerations and AI Safety",
         ],
       },
       {
-        title: "Module 2: Advanced Prompt Engineering & Frameworks",
+        title: "Module 2: Mathematical & ML Foundations",
         topics: [
-          "Zero-shot, Few-shot, and Chain-of-Thought Prompting",
-          "Working with Popular Frameworks (e.g., LangChain)",
-          "Retrieval-Augmented Generation (RAG) Systems",
+          "Linear Algebra and Probability Refresher",
+          "Neural Networks and Backpropagation",
+          "Attention Mechanisms and Transformers",
         ],
       },
       {
-        title: "Module 3: Fine-Tuning and Deployment",
+        title: "Module 3: Large Language Models (LLMs)",
         topics: [
-          "Parameter-Efficient Fine-Tuning (PEFT) Techniques",
-          "Building and Deploying Chatbots",
-          "Image and Code Generation Models Overview",
+          "Understanding LLMs (GPT, LLaMA, PaLM, etc.)",
+          "Tokenization, Embeddings, and Vector Representations",
+          "Prompt Engineering: Zero-shot, Few-shot, Chain-of-Thought",
+        ],
+      },
+      {
+        title: "Module 4: Tools & Frameworks",
+        topics: [
+          "LangChain for LLM Applications",
+          "Retrieval-Augmented Generation (RAG)",
+          "Fine-tuning & Parameter-Efficient Training (PEFT)",
+        ],
+      },
+      {
+        title: "Module 5: Generative Models in Other Domains",
+        topics: [
+          "Image Generation (Diffusion Models, Stable Diffusion, DALL·E)",
+          "Code Generation with LLMs",
+          "Multimodal AI (Text + Image + Audio)",
+        ],
+      },
+    ],
+  },
+  analytics: {
+    courseTitle: "Professional Data Analytics",
+    icon: FiBarChart, // import from react-icons/fi
+    description:
+      "Master the tools and techniques of modern data analytics, including Excel, SQL, Power BI, and Tableau, to analyze, visualize, and present data effectively.",
+    duration: "60 hrs",
+    difficulty: "Intermediate",
+    modules: [
+      {
+        title: "Module 1: Foundations of Data Analytics",
+        topics: [
+          "Role of Data Analytics in Business",
+          "Types of Analytics: Descriptive, Diagnostic, Predictive, Prescriptive",
+          "Excel for Data Analysis",
+        ],
+      },
+      {
+        title: "Module 2: Data Management with SQL",
+        topics: [
+          "SQL Refresher",
+          "Advanced Queries, Joins, and Aggregations",
+          "Window Functions and CTEs",
+          "Mini Project: Business Queries",
+        ],
+      },
+      {
+        title: "Module 3: Data Visualization with Power BI",
+        topics: [
+          "Power BI Basics",
+          "Data Modeling and DAX",
+          "Building Interactive Dashboards",
+          "Business Case Dashboard Project",
+        ],
+      },
+      {
+        title: "Module 4: Visualization & Storytelling with Tableau",
+        topics: [
+          "Tableau Fundamentals",
+          "Calculated Fields and Parameters",
+          "Building Interactive Dashboards",
+          "Storytelling with Data",
+        ],
+      },
+      {
+        title: "Module 5: Statistics for Data Analytics",
+        topics: [
+          "Descriptive Statistics",
+          "Probability Basics",
+          "Hypothesis Testing",
+          "Correlation & Regression Analysis",
+        ],
+      },
+      {
+        title: "Capstone Project",
+        topics: [
+          "End-to-End Data Analysis on a Real-World Dataset",
+          "Combine SQL, Power BI, and Tableau to present insights",
+        ],
+      },
+    ],
+  },
+  datascience: {
+    courseTitle: "Professional Data Science",
+    icon: FiTrendingUp, // import from react-icons/fi
+    description:
+      "A comprehensive program to train as a full-fledged Data Scientist. Covers statistics, machine learning, and AI with end-to-end projects.",
+    duration: "100 hrs",
+    difficulty: "Advanced",
+    modules: [
+      {
+        title: "Module 1: Statistics & Mathematics for Data Science",
+        topics: [
+          "Descriptive & Inferential Statistics",
+          "Linear Algebra for Machine Learning",
+          "Probability & Distributions",
+          "Hypothesis Testing & ANOVA",
+        ],
+      },
+      {
+        title: "Module 2: Python for Data Science",
+        topics: [
+          "NumPy & Pandas for Data Handling",
+          "Matplotlib & Seaborn for Visualization",
+          "EDA (Exploratory Data Analysis)",
+        ],
+      },
+      {
+        title: "Module 3: Machine Learning Foundations",
+        topics: [
+          "Supervised Learning (Regression & Classification)",
+          "Unsupervised Learning (Clustering, PCA)",
+          "Model Evaluation Metrics",
+          "Feature Engineering & Selection",
+        ],
+      },
+      {
+        title: "Module 4: Advanced Machine Learning",
+        topics: [
+          "Ensemble Learning (Random Forests, Gradient Boosting, XGBoost)",
+          "Support Vector Machines",
+          "Time Series Forecasting",
+        ],
+      },
+      {
+        title: "Module 5: Deep Learning",
+        topics: [
+          "Neural Networks & Backpropagation",
+          "CNNs for Image Data",
+          "RNNs and LSTMs for Sequential Data",
+          "Introduction to Transformers",
+        ],
+      },
+      {
+        title: "Module 6: Natural Language Processing",
+        topics: [
+          "Text Preprocessing & Embeddings",
+          "Sentiment Analysis",
+          "Topic Modeling",
+          "LLMs Introduction",
+        ],
+      },
+      {
+        title: "Capstone Project",
+        topics: [
+          "End-to-End Data Science Solution",
+          "Data Cleaning → Feature Engineering → Modeling → Deployment",
         ],
       },
     ],
@@ -278,44 +684,64 @@ const HeroBanner = ({ title, Icon }) => (
 );
 
 const CourseInfoBar = ({ duration, difficulty, description }) => (
+  // <motion.div
+  //   className="relative z-20 max-w-6xl mx-auto -mt-8 mb-12 grid grid-cols-1 sm:grid-cols-3 gap-6 px-6"
+  //   initial="hidden"
+  //   whileInView="visible"
+  //   viewport={{ once: true, amount: 0.2 }}
+  //   variants={staggerContainer}
+  // >
+  //   <motion.div
+  //     className="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-t-yellow-400"
+  //     variants={fadeInUp}
+  //   >
+  //     <FiClock size={24} style={{ color: SECONDARY_COLOR }} className="mb-2" />
+  //     <h3 className="text-sm font-semibold text-gray-500 uppercase">
+  //       Duration
+  //     </h3>
+  //     <p className="text-xl font-bold text-gray-800">{duration}</p>
+  //   </motion.div>
+  //   <motion.div
+  //     className="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-t-red-400"
+  //     variants={fadeInUp}
+  //   >
+  //     <FiBookOpen size={24} style={{ color: ACCENT_COLOR }} className="mb-2" />
+  //     <h3 className="text-sm font-semibold text-gray-500 uppercase">
+  //       Difficulty
+  //     </h3>
+  //     <p className="text-xl font-bold text-gray-800">{difficulty}</p>
+  //   </motion.div>
+  //   <motion.div
+  //     className="bg-white p-6 rounded-xl shadow-2xl sm:col-span-1 border-t-4 border-t-blue-400"
+  //     variants={fadeInUp}
+  //   >
+  //     <FiCpu size={24} style={{ color: PRIMARY_COLOR }} className="mb-2" />
+  //     <h3 className="text-sm font-semibold text-gray-500 uppercase">
+  //       Description
+  //     </h3>
+  //     <p className="text-base text-gray-700">{description}</p>
+  //   </motion.div>
+  // </motion.div>
   <motion.div
-    className="relative z-20 max-w-6xl mx-auto -mt-8 mb-12 grid grid-cols-1 sm:grid-cols-3 gap-6 px-6"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.2 }}
-    variants={staggerContainer}
+  className="flex justify-center items-center mt-10 mb-10 px-6"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={staggerContainer}
+>
+  <motion.div
+    className="bg-white p-6 sm:p-8 rounded-xl shadow-2xl border-t-4 border-t-yellow-400 text-center w-full max-w-sm"
+    variants={fadeInUp}
+    whileHover={{ scale: 1.03 }}
   >
-    <motion.div
-      className="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-t-yellow-400"
-      variants={fadeInUp}
-    >
-      <FiClock size={24} style={{ color: SECONDARY_COLOR }} className="mb-2" />
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        Duration
-      </h3>
-      <p className="text-xl font-bold text-gray-800">{duration}</p>
-    </motion.div>
-    <motion.div
-      className="bg-white p-6 rounded-xl shadow-2xl border-t-4 border-t-red-400"
-      variants={fadeInUp}
-    >
-      <FiBookOpen size={24} style={{ color: ACCENT_COLOR }} className="mb-2" />
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        Difficulty
-      </h3>
-      <p className="text-xl font-bold text-gray-800">{difficulty}</p>
-    </motion.div>
-    <motion.div
-      className="bg-white p-6 rounded-xl shadow-2xl sm:col-span-1 border-t-4 border-t-blue-400"
-      variants={fadeInUp}
-    >
-      <FiCpu size={24} style={{ color: PRIMARY_COLOR }} className="mb-2" />
-      <h3 className="text-sm font-semibold text-gray-500 uppercase">
-        Description
-      </h3>
-      <p className="text-base text-gray-700">{description}</p>
-    </motion.div>
+    <FiClock size={28} style={{ color: SECONDARY_COLOR }} className="mx-auto mb-3" />
+    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+      Duration
+    </h3>
+    <p className="text-2xl font-bold text-gray-800 mt-1">{duration}</p>
   </motion.div>
+</motion.div>
+
 );
 
 // New Component for collapsible modules

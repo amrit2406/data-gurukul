@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom"; // ✅ Import Link
-import logo from "../assets/ilp.svg";
+import logo from "../assets/ilp.png";
 
 const PRIMARY_COLOR = "#023270";
 const SECONDARY_COLOR = "#796202";
@@ -50,7 +50,7 @@ const Footer = () => {
       whileInView="animate"
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 py-20">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 py-18">
         {/* Top Section */}
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4 border-b border-[#796202aa] pb-14">
           {/* Logo & Mission */}
@@ -62,7 +62,7 @@ const Footer = () => {
               <img
                 src={logo} 
                 alt="Data Gurukul Logo"
-                className="bg-white rounded h-20 w-auto drop-shadow-md"
+                className="bg-white rounded-full rounded h-20 w-auto drop-shadow-md"
               />
               {/* <span>
                 Data <span className="text-yellow-500">Gurukul</span>
@@ -165,10 +165,10 @@ const Footer = () => {
                 <div>
                   <p className="text-yellow-200">Phone:</p>
                   <a
-                    href="tel:+917008463002"
+                    href="tel:+918917236682"
                     className="hover:text-yellow-400 transition "
                   >
-                    +91 7008463002
+                    +91 8917236682
                   </a>
                 </div>
               </li>

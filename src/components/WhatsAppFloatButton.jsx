@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function WhatsAppFloatingButton() {
-  const phone = "917008463002"; // Your WhatsApp number without '+'
+  const phone = "918917236682"; // Your WhatsApp number without '+'
   const defaultMessage = "Hi there! I'm interested in your Tour packages.";
 
   const [isMobileViewport, setIsMobileViewport] = useState(false);
@@ -28,7 +28,7 @@ export default function WhatsAppFloatingButton() {
   };
 
   return (
-    <div className={`fixed ${isMobileViewport ? "bottom-4" : "bottom-6"} right-6 z-50`}>
+    <div className={`fixed ${isMobileViewport ? "bottom-4" : "bottom-6"} left-6 z-50`}>
       <button
         onClick={() => openWhatsApp()}
         className="flex items-center justify-center bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300"

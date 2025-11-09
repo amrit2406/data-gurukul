@@ -12,11 +12,13 @@ import ContactPage from './pages/Contact';
 import CourseDetailsPage from './components/CourseDetails';
 import SyllabusPage from './pages/Syllabus';
 import SyllabusDetailsPage from './components/SyllabusDetails';
+import PopupForm from './components/Pop';
 
 function App() {
   return (
     <div className="flex flex-col min-h-screen bg-[#eff6fd]">
       <ScrollToTop />
+      <PopupForm />
       <Navbar />
       <main className="flex-1">
         <Routes>

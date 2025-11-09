@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase, Users, Gem, GraduationCap } from "lucide-react";
+import { Briefcase, Users, Gem, GraduationCap, Video, FileText, Headphones } from "lucide-react";
 
 const PRIMARY_COLOR = "#023270";
 const SECONDARY_COLOR = "#796202";
@@ -47,31 +47,69 @@ const KSPs = [
   {
     icon: Users,
     title: "Expert Mentor Network",
-    description: "Learn directly from senior Data Scientists and AI Engineers working at FAANG and major firms.",
+    description:
+      "Learn directly from senior Data Scientists and AI Engineers working at FAANG and major firms.",
     color: PRIMARY_COLOR,
     bg: PRIMARY_BG,
   },
   {
     icon: Gem,
     title: "Guaranteed Placement Support",
-    description: "Personalized resume building, mock interviews, and exclusive job portal access.",
+    description:
+      "Personalized resume building, mock interviews, and exclusive job portal access.",
     color: SECONDARY_COLOR,
     bg: SECONDARY_BG,
   },
   {
     icon: GraduationCap,
     title: "Generative AI Focus",
-    description: "Dedicated modules on LLMs, Stable Diffusion, and prompt engineering.",
-    color: "#7c3aed", // Purple for AI focus
+    description:
+      "Dedicated modules on LLMs, Stable Diffusion, and prompt engineering.",
+    color: "#7c3aed",
     bg: "rgba(124, 58, 237, 0.12)",
+  },
+  {
+    icon: Video,
+    title: "Live Training",
+    description: "Interactive live sessions with hands-on exercises and Q&A.",
+    color: "#16a34a", // green
+    bg: "rgba(22, 163, 74, 0.12)",
+  },
+  {
+    icon: FileText,
+    title: "Resume Building",
+    description:
+      "Craft professional resumes tailored for data science and AI roles.",
+    color: "#f59e0b", // amber
+    bg: "rgba(245, 158, 11, 0.12)",
+  },
+  {
+    icon: Users,
+    title: "Soft Skills Training",
+    description:
+      "Improve communication, teamwork, and presentation skills for professional success.",
+    color: "#0ea5e9", // sky blue
+    bg: "rgba(14, 165, 233, 0.12)",
+  },
+  {
+    icon: Headphones,
+    title: "Mock Interviews",
+    description:
+      "Practice real-world interview scenarios with mentors and get actionable feedback.",
+    color: "#ef4444", // red
+    bg: "rgba(239, 68, 68, 0.12)",
   },
 ];
 
+
 const KeyFeatures = () => (
-  <section id="about" className="py-20 sm:py-32 bg-gradient-to-br from-white via-[#f7f7f5] to-[#f1f3f7]">
+  <section
+    id="about"
+    className="py-18 bg-gradient-to-br from-white via-[#f7f7f5] to-[#f1f3f7]"
+  >
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <motion.div
-        className="text-center max-w-4xl mx-auto"
+        className="text-center max-w-5xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -89,34 +127,47 @@ const KeyFeatures = () => (
           className="mt-2 text-4xl font-extrabold text-gray-900 sm:text-5xl "
           variants={textVariants}
         >
-          Your Accelerated Path to <span style={{ color: PRIMARY_COLOR }}>Data Mastery</span>
+          Your Accelerated Path to Data Mastery{" "}
+          {/* <span style={{ color: PRIMARY_COLOR }}>Data Mastery</span> */}
         </motion.h2>
 
+        <motion.p
+          className="mt-6 mx-auto max-w-4xl text-xl text-gray-600"
+          variants={textVariants}
+        >
+          We are more than just an institute. Data Gurukul is an intensive,
+          project-based academy transforming aspirants into professional Data
+          Scientists and AI specialists ready for the modern workplace.
+        </motion.p>
         <motion.p
           className="mt-6 mx-auto max-w-3xl text-xl text-gray-600"
           variants={textVariants}
         >
-          We are more than just an institute. Data Gurukul is an intensive, project-based academy transforming aspirants into professional Data Scientists and AI specialists ready for the modern workplace.
+          Along with core concepts, you’ll gain hands-on experience with major cloud
+          platforms like AWS, Azure, and GCP — a must-have skill for modern data
+          pipelines and scalable AI solutions.
         </motion.p>
       </motion.div>
 
       <motion.div
-        className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.4 }}
-      >
-        {KSPs.map((ksp, idx) => (
+      className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      {KSPs.map((ksp, idx) => {
+        const Icon = ksp.icon;
+        return (
           <motion.div
             key={idx}
-            className="rounded-3xl p-6 shadow-xl backdrop-blur-sm bg-white/60 border border-gray-100 cursor-pointer"
+            className="rounded-3xl p-6 shadow-xl bg-white/90 backdrop-blur-sm border border-gray-100 cursor-pointer"
             style={{ backgroundColor: ksp.bg, borderColor: ksp.color }}
             variants={cardVariants}
             whileHover="hover"
           >
-            <div className="flex items-center space-x-5">
-              <ksp.icon
+            <div className="flex items-center space-x-4">
+              <Icon
                 className="p-2 bg-white rounded-full"
                 style={{
                   color: ksp.color,
@@ -125,28 +176,17 @@ const KeyFeatures = () => (
                   height: 44,
                 }}
               />
-              <h3 className="text-2xl font-extrabold text-gray-900">{ksp.title}</h3>
+              <h3 className="text-lg sm:text-xl font-extrabold text-gray-900">
+                {ksp.title}
+              </h3>
             </div>
-            <p className="mt-4 text-gray-700 leading-relaxed">{ksp.description}</p>
+            <p className="mt-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+              {ksp.description}
+            </p>
           </motion.div>
-        ))}
-      </motion.div>
-
-      {/* <motion.div
-        className="mt-20 text-center"
-        variants={textVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-      >
-        <a
-          href="#mentors"
-          className="inline-flex items-center rounded-full border-2 border-transparent bg-gradient-to-r from-[#796202] to-[#b38f09] px-8 py-4 text-lg font-semibold text-white shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-          style={{ letterSpacing: "0.04em" }}
-        >
-          Meet Our Industry Mentors →
-        </a>
-      </motion.div> */}
+        );
+      })}
+    </motion.div>
     </div>
   </section>
 );

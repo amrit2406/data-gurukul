@@ -36,61 +36,62 @@ const SECONDARY_COLOR = "#796202";
 
 const courseDomains = [
   {
-    title: "Python Programming",
+    title: "Python & SQL Program",
     icon: Code,
     color: "text-yellow-600",
     description:
-      "Learn Python from the ground up and build a strong foundation in programming for data science.",
+      "Build a solid foundation in programming and databases with Python and SQL, essential for all data careers.",
     slug: "python",
     courses: [
       "Python for Data Science (Beginner to Advanced)",
-      "Data Wrangling & Automation with Python",
+      "SQL for Data Analysis & Database Management",
     ],
-    tags: ["Core", "Beginner", "Programming"],
+    tags: ["Core", "Beginner", "Programming", "Database"],
   },
   {
-    title: "SQL & Database Management",
-    icon: Database,
-    color: "text-indigo-600",
-    description:
-      "Master SQL and database concepts to efficiently store, query, and manage data for analysis.",
-    slug: "sql",
-    courses: [
-      "Advanced SQL Queries & Optimization",
-      "Database Design & Management",
-    ],
-    tags: ["Core", "Database", "SQL"],
-  },
-  {
-    title: "Business Intelligence with Power BI",
+    title: "Professional Data Analytics",
     icon: TrendingUp,
     color: "text-teal-600",
     description:
-      "Transform raw datasets into powerful dashboards and reports to drive business decisions.",
-    slug: "powerbi",
+      "Learn how to analyze, visualize, and communicate insights from data using tools like Power BI, Tableau, and Excel.",
+    slug: "analytics",
     courses: [
-      "Power BI Mastery",
-      "Data Storytelling & Visualization Best Practices",
+      "Data Analysis with Excel & Power BI",
+      "Data Visualization & Storytelling",
     ],
-    tags: ["BI", "Analytics", "Visualization"],
+    tags: ["Analytics", "Visualization", "Business Intelligence"],
   },
   {
-    title: "Machine Learning",
+    title: "Professional Data Science",
+    icon: Database,
+    color: "text-indigo-600",
+    description:
+      "Master data science techniques including statistics, machine learning, and advanced modeling to solve complex problems.",
+    slug: "datascience",
+    courses: [
+      "Applied Statistics for Data Science",
+      "Machine Learning & Predictive Modeling",
+    ],
+    tags: ["Data Science", "ML", "Statistics", "AI"],
+  },
+  {
+    title: "Gen AI & Agentic AI",
     icon: Cpu,
     color: "text-red-600",
     description:
-      "Build predictive models and gain hands-on experience with real-world machine learning applications.",
-    slug: "ml",
+      "Explore the world of Generative AI and Agentic AI—learn to build AI-driven applications, chatbots, and automation systems.",
+    slug: "genai",
     courses: [
-      "Machine Learning with Scikit-learn",
-      "Deep Learning Fundamentals with TensorFlow",
+      "Generative AI with LLMs",
+      "Agentic AI & Autonomous Systems",
     ],
-    tags: ["ML", "AI", "Applied"],
+    tags: ["AI", "GenAI", "Innovation"],
   },
 ];
 
+
 const CoursesSection = () => (
-  <section id="courses" className="py-20 sm:py-32 bg-white relative">
+  <section id="courses" className="py-18 sm:py-20 bg-white relative">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
       <motion.div
@@ -111,8 +112,8 @@ const CoursesSection = () => (
           className="mt-2 text-4xl font-extrabold text-gray-900 sm:text-5xl"
           variants={headerVariants}
         >
-          In-Demand Data Science{" "}
-          <span style={{ color: PRIMARY_COLOR }}>Courses.</span>
+          In-Demand Data Science Courses{" "}
+          {/* <span style={{ color: PRIMARY_COLOR }}>Courses.</span> */}
         </motion.h2>
         <motion.p
           className="mt-4 mx-auto max-w-2xl text-xl text-gray-600"
@@ -125,7 +126,7 @@ const CoursesSection = () => (
 
       {/* Courses Grid */}
       <motion.div
-        className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
+        className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -165,7 +166,7 @@ const CoursesSection = () => (
               </ul>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-gray-100 flex flex-wrap gap-2">
+            {/* <div className="mt-6 pt-4 border-t border-gray-100 flex flex-wrap gap-2">
               {domain.tags.map((tag, i) => (
                 <span
                   key={i}
@@ -174,7 +175,7 @@ const CoursesSection = () => (
                   {tag}
                 </span>
               ))}
-            </div>
+            </div> */}
 
             {/* Link to individual course page */}
             <Link

@@ -28,27 +28,26 @@ const MotionLink = motion(Link);
 
 const CtaSection = () => {
   return (
-    <section className="relative bg-white py-20 lg:py-28">
+    <section className="relative bg-white py-18">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
         {/* Left Side: Large Text */}
         <motion.div
-  initial={{ opacity: 0, x: -50 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8 }}
-  className="flex-1 rounded-3xl text-white shadow-lg flex flex-col justify-center 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex-1 rounded-3xl text-white shadow-lg flex flex-col justify-center 
              p-6 sm:p-10 lg:p-16"
-  style={{ backgroundColor: PRIMARY_COLOR }}
->
-  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-snug sm:leading-tight tracking-tight mb-4 sm:mb-6">
-    Ready to Launch Your{" "}
-    <span className="text-yellow-500">High-Growth Career?</span>
-  </h2>
-  <p className="text-base sm:text-lg leading-relaxed max-w-lg font-medium">
-    Don’t wait for the future. Define it with mastery in Data Science
-    and Generative AI.
-  </p>
-</motion.div>
-
+          style={{ backgroundColor: PRIMARY_COLOR }}
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-snug sm:leading-tight tracking-tight mb-4 sm:mb-6">
+            Ready to Launch Your{" "}
+            <span className="text-yellow-500">High-Growth Career?</span>
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed max-w-lg font-medium">
+            Don’t wait for the future. Define it with mastery in Data Science
+            and Generative AI.
+          </p>
+        </motion.div>
 
         {/* Right Side: Floating CTAs */}
         <motion.div

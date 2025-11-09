@@ -72,7 +72,7 @@ const faqs = [
   {
     question: "What is the typical duration of a course?",
     answer:
-      "Our core bootcamps typically range from **6 to 9 months**, depending on whether you choose a part-time or full-time schedule. Specialized modules like Generative AI are generally **4-6 weeks** long.",
+      "Our core bootcamps typically range from 6 to 9 months, depending on whether you choose a part-time or full-time schedule. Specialized modules like Generative AI are generally 4-6 weeks long.",
   },
   {
     question: "Is prior coding experience required to enroll?",
@@ -82,17 +82,17 @@ const faqs = [
   {
     question: "What kind of placement assistance does Data Gurukul provide?",
     answer:
-      "We offer **100% placement assistance**, including resume writing workshops, dedicated interview preparation (technical and HR), and direct access to our network of hiring partners through an exclusive job portal.",
+      "We offer 100% placement assistance, including resume writing workshops, dedicated interview preparation (technical and HR), and direct access to our network of hiring partners through an exclusive job portal.",
   },
   {
     question: "Are the instructors industry experts?",
     answer:
-      "Absolutely. All our 'Gurukuls' (Mentors) are senior Data Scientists, ML Engineers, and AI specialists currently working at leading **FAANG** and high-growth technology companies. They teach based on real-world experience.",
+      "Absolutely. All our 'Gurukuls' (Mentors) are senior Data Scientists, ML Engineers, and AI specialists currently working at leading FAANG and high-growth technology companies. They teach based on real-world experience.",
   },
   {
     question: "Can I pay the course fee in installments?",
     answer:
-      "Yes, we offer flexible payment options, including **interest-free monthly installments** through our financial partners. Please contact our admissions team for personalized plans.",
+      "Yes, we offer flexible payment options, including interest-free monthly installments through our financial partners. Please contact our admissions team for personalized plans.",
   },
 ];
 

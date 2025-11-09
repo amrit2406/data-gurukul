@@ -127,7 +127,7 @@ const stats = [
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30 py-18 sm:py-18">
+    <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30 py-16 md:py-28">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100/20 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-100/20 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
@@ -189,25 +189,25 @@ const HeroSection = () => {
               className="text-4xl sm:text-3xl md:text-5xl font-bold tracking-tight text-gray-900 leading-tight"
               variants={textItemVariants}
             >
-              Future-Proof Your{" "}
-              <span
+              Future-Proof Your Career{" "}
+              {/* <span
                 className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent"
                 style={{
                   backgroundImage: `linear-gradient(135deg, ${PRIMARY_COLOR}, #001a3d)`,
                 }}
               >
                 Career
-              </span>
+              </span> */}
               <br />
-              Master Data Science{" "}
-              <span
+              Master Data Science & AI{" "}
+              {/* <span
                 className="bg-gradient-to-r from-amber-600 to-amber-800 bg-clip-text text-transparent"
                 style={{
                   backgroundImage: `linear-gradient(135deg, ${SECONDARY_COLOR}, #5a4a00)`,
                 }}
               >
                 & AI
-              </span>
+              </span> */}
             </motion.h1>
 
             {/* Sub-Headline */}
@@ -215,14 +215,13 @@ const HeroSection = () => {
               className="mt-8 text-xl text-gray-600 sm:text-2xl max-w-2xl leading-relaxed"
               variants={textItemVariants}
             >
-              Accelerate your journey in <strong>Python</strong>,{" "}
-              <strong>Machine Learning</strong>, and{" "}
-              <strong>Generative AI</strong>. Learn from industry experts and
-              secure your dream data role with hands-on projects.
+              Accelerate your journey in <strong>Data Structures</strong> and{" "}
+              <strong>Artificial Intelligence (AI)</strong>. Learn from industry
+              experts and secure your dream data role with hands-on projects.
             </motion.p>
 
             {/* Feature Badges */}
-            <motion.div
+            {/* <motion.div
               className="mt-10 flex flex-wrap gap-4"
               variants={containerVariants}
             >
@@ -246,7 +245,7 @@ const HeroSection = () => {
                   </span>
                 </motion.div>
               ))}
-            </motion.div>
+            </motion.div> */}
 
             {/* CTAs */}
             <motion.div
@@ -319,7 +318,7 @@ const HeroSection = () => {
           </div>
 
           {/* RIGHT COLUMN: Visual Section */}
-          <div className="hidden lg:col-span-5 lg:block xl:col-span-5 self-center mt-10 lg:mt-0">
+          <div className="hidden lg:col-span-5 lg:block xl:col-span-5 self-center">
             <motion.div
               variants={visualVariants}
               className="relative w-full h-96"

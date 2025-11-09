@@ -32,7 +32,31 @@ const ContactHero = () => (
 const ContactFormSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you for your message! We'll get back to you soon.");
+
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const subject = formData.get("subject");
+    const message = formData.get("message");
+
+    // WhatsApp number (use your own)
+    const phoneNumber = "918917236682"; // no '+' or spaces
+
+    // Create the message text
+    const text = `Hello Data Gurukul! 👋
+My name is *${name}*.
+Email: ${email}
+Subject: ${subject || "N/A"}
+Message: ${message}`;
+
+    // Encode the message for the WhatsApp URL
+    const encodedMessage = encodeURIComponent(text);
+
+    // WhatsApp API link
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp chat
+    window.open(whatsappURL, "_blank");
   };
 
   return (
@@ -140,7 +164,7 @@ const ContactFormSection = () => {
             href="tel:+917008463002"
             className="text-gray-700 text-lg hover:text-yellow-500 transition"
           >
-            +91 7008463002
+            +91 8917236682
           </a>
         </div>
 

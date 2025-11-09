@@ -19,7 +19,7 @@ const testimonials = [
   {
     quote:
       "Data Gurukul's Generative AI course was a game-changer. The hands-on project with LLMs directly landed me a role as an AI Developer. The curriculum is truly industry-aligned.",
-    name: "Priya Sharma",
+    name: "Subransu Senapati",
     // title: "AI Developer at TechCorp",
     course: "Generative AI Bootcamp",
     rating: 5,
@@ -27,8 +27,8 @@ const testimonials = [
   },
   {
     quote:
-      "The personalized mentorship in Machine Learning was phenomenal. My mentor, a senior engineer at Google, helped me fine-tune my portfolio, which was key to my placement success.",
-    name: "Rajesh Kumar",
+      "Machine Learning re byaktigata mentorship adbhuta thila. Mo mentor, Google re senior engineer, mo portfolio ku fine-tune karibare sahajya kale, ja mo placement safalata pai key thila.",
+    name: "Rajesh Barik",
     // title: "Data Scientist at Fintech Solutions",
     course: "Machine Learning Deep Dive",
     rating: 5,
@@ -37,7 +37,7 @@ const testimonials = [
   {
     quote:
       "I moved from an analyst role to a data engineer role thanks to the Python and SQL mastery courses. The project-based approach means you learn real, marketable skills.",
-    name: "Anjali Menon",
+    name: "Priyadarsani Panda",
     // title: "Data Engineer at Ecom Inc.",
     course: "Python & SQL Mastery",
     rating: 4,
@@ -45,8 +45,8 @@ const testimonials = [
   },
   {
     quote:
-      "The PowerBI and Tableau training gave me confidence in data visualization. I can now create compelling data stories that influence business decisions.",
-    name: "Vikram Singh",
+      "PowerBI au Tableau training mu ku data visualization re confidence dile. Mu ebar compelling data stories create karipari je gote business decision ku influence kare.",
+    name: "Madana Kumar",
     // title: "BI Consultant at Global Analytics",
     course: "BI & Visualization Track",
     rating: 5,

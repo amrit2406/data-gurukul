@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Code, Database, BarChart3, BrainCircuit, Zap } from "lucide-react";
+import { Code, Database, BarChart3, BrainCircuit, Zap, TrendingUp, Cpu } from "lucide-react";
 
 const PRIMARY_COLOR = "#023270";
 const SECONDARY_COLOR = "#796202";
@@ -59,6 +59,22 @@ const courses = [
     description:
       "Explore the exciting world of generative AI and large language models with practical projects.",
     color: "text-orange-600",
+  },
+  {
+    id: "analytics",
+    title: "Professional Data Analytics",
+    icon: TrendingUp,
+    description:
+      "Develop expertise in data analysis, visualization, and storytelling using Excel, SQL, Power BI, and Tableau.",
+    color: "text-green-600",
+  },
+  {
+    id: "datascience",
+    title: "Professional Data Science",
+    icon: Cpu,
+    description:
+      "Master statistics, machine learning, and deep learning with end-to-end real-world projects.",
+    color: "text-pink-600",
   },
 ];
 

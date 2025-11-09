@@ -39,7 +39,7 @@ const AboutPage = () => {
         variants={fadeInUp}
       >
         <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight max-w-4xl mx-auto">
-          Discover the <span className="text-yellow-600">Data Gurukul</span>{" "}
+          Discover the Data Gurukul<span className="text-yellow-600"></span>{" "}
           Advantage
         </h1>
         <p className="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-yellow-300 font-medium">
@@ -50,7 +50,7 @@ const AboutPage = () => {
 
       {/* About The Company */}
       <motion.section
-        className="max-w-7xl mx-auto p-6 sm:p-12 mt-20"
+        className="max-w-7xl mx-auto py-18"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -62,7 +62,7 @@ const AboutPage = () => {
         >
           About Data Gurukul
         </h2>
-        <p className="text-lg leading-relaxed max-w-4xl mx-auto text-gray-700">
+        <p className="text-lg max-w-4xl mx-auto text-gray-700">
           Data Gurukul is a pioneering academy dedicated to closing the gap
           between academic theory and industry demands. Founded by seasoned Data
           Scientists, we focus on project-based learning, real-world tools, and
@@ -74,7 +74,7 @@ const AboutPage = () => {
 
       {/* Mission & Vision */}
       <motion.section
-        className="bg-yellow-50 py-20 px-6 sm:px-12 mt-20"
+        className="bg-yellow-50 py-18 px-6 sm:px-12 mt-20"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -90,9 +90,11 @@ const AboutPage = () => {
               Our Mission
             </h3>
             <p className="max-w-md text-gray-700 leading-relaxed">
-              To bridge the gap between academic theory and industry demand by
-              delivering rigorous, project-focused training that prepares
-              students for successful careers in Data Science and AI.
+              To provide the highest quality education in Data Science and
+              Artificial Intelligence, bridging the gap between academic theory
+              and industry demand through rigorous, project-focused training,
+              and ensuring every student is prepared for meaningful employment
+              in the AI-driven world.
             </p>
           </div>
           <div className="flex flex-col items-center text-center md:text-left">
@@ -104,9 +106,11 @@ const AboutPage = () => {
               Our Vision
             </h3>
             <p className="max-w-md text-gray-700 leading-relaxed">
-              To be India’s leading accelerator for Data Science careers,
-              championing industry mentorship and cutting-edge research in
-              Generative AI.
+              To establish our own AI-based company in Bhubaneswar, where our
+              students will not only design and deliver innovative business
+              solutions for clients but also drive research, entrepreneurship,
+              and industry collaboration, positioning Bhubaneswar as a hub for
+              AI innovation.
             </p>
           </div>
         </div>
@@ -114,7 +118,7 @@ const AboutPage = () => {
 
       {/* Core Values */}
       <motion.section
-        className="py-20 px-6 sm:px-12 mt-20 bg-white"
+        className="py-18 px-6 sm:px-12 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}

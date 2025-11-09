@@ -67,6 +67,22 @@ const courses = [
       "Dive into the future of AI with generative models, transformers, and prompt engineering.",
     color: "text-orange-600",
   },
+  {
+    id: "analytics",
+    title: "Professional Data Analytics",
+    icon: BarChart3,
+    description:
+      "Gain expertise in data cleaning, analysis, and visualization using Excel, Power BI, and Tableau to drive data-informed decisions.",
+    color: "text-green-600",
+  },
+  {
+    id: "datascience",
+    title: "Professional Data Science",
+    icon: BrainCircuit,
+    description:
+      "Master statistics, machine learning, and advanced modeling with real-world projects to become an industry-ready data scientist.",
+    color: "text-pink-600",
+  },
 ];
 
 const HeroBanner = () => (

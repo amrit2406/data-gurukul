@@ -9,7 +9,11 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { when: "beforeChildren", staggerChildren: 0.12, delayChildren: 0.25 },
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.12,
+      delayChildren: 0.25,
+    },
   },
 };
 
@@ -27,8 +31,8 @@ const contactDetails = [
   {
     icon: Phone,
     title: "Call Us",
-    detail: "+91 7008463002",
-    link: "tel:+917008463002",
+    detail: "+91 8917236682",
+    link: "tel:+918917236682",
   },
   {
     icon: Mail,
@@ -47,13 +51,43 @@ const contactDetails = [
 const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you for your inquiry! We'll be in touch shortly.");
+
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const subject = formData.get("subject");
+    const message = formData.get("message");
+
+    // Your WhatsApp number (without "+" or spaces)
+    const phoneNumber = "918917236682";
+
+    // Create a message template
+    const text = `Hello Data Gurukul! 👋
+
+My name is *${name}*.
+Email: ${email}
+Subject / Course Interest: ${subject || "N/A"}
+Message: ${message}
+
+Please get back to me soon.`;
+
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(text);
+
+    // WhatsApp API link
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab/window
+    window.open(whatsappURL, "_blank");
+
+    // Optional: reset form after opening WhatsApp
+    e.target.reset();
   };
 
   return (
     <section
       id="contact"
-      className="py-20 sm:py-28 bg-gradient-to-br from-[#fefcf8] via-[#f5f7ff] to-[#f0faff]"
+      className="py-18 bg-gradient-to-br from-[#fefcf8] via-[#f5f7ff] to-[#f0faff]"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -88,7 +122,9 @@ const ContactSection = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-8">Send Us a Quick Message</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-8">
+              Send Us a Quick Message
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -109,7 +145,10 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Email Address
                   </label>
                   <input
@@ -124,7 +163,10 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Subject / Course Interest
                 </label>
                 <input
@@ -137,7 +179,10 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Your Message
                 </label>
                 <textarea
